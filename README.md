@@ -1,2 +1,2 @@
 # De-Biase-Bellatti-Grand-Prix-001-
-Repo del primer auto de Formula ESP de De Biase Bellatti Grand Prix
+Primer auto de FESP de DBBGP. Tiene dos motores DC en simultaneo potenciando las ruedas de atras y un servo manejando una dirección mecanica adelante. Esto permite, a diferencia de uno con 4 motores DC, pueda avanzar (o retroceder) y doblar al mismo tiempo. El .rar contiene todos los archivos de KiCad.
