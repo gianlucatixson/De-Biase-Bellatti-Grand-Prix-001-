@@ -3,12 +3,16 @@
 #include <analogWrite.h>
 #include <ESP32Tone.h>
 #include <ESP32PWM.h>
+
+//pines de Driver L293
 #define A1 19
 #define A2 18
 #define A3 16
 #define A4 2
 #define MOTOR_DC_A 25
 #define MOTOR_DC_B 17
+
+//config Servo
 #define MINSG90 500
 #define MAXSG90 2400
 #define frecuencia 50
@@ -48,6 +52,7 @@ void setup() {
   Serial.begin(115200);
   PS4.begin("1a:2b:3c:01:01:01");
   Serial.println("Ready.");
+  
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
   pinMode(A3, OUTPUT);
@@ -56,20 +61,19 @@ void setup() {
   pinMode(MOTOR_DC_B, OUTPUT);
   digitalWrite(MOTOR_DC_A, HIGH);
   digitalWrite(MOTOR_DC_B, HIGH);
-  //pines();
+
   pinMode(15, OUTPUT);
   ESP32PWM::allocateTimer(0);
   ESP32PWM::allocateTimer(1);
   ESP32PWM::allocateTimer(2);
   ESP32PWM::allocateTimer(3);
-  //ServosHz();
+
   servo.setPeriodHertz(frecuencia);
-  //ServosAttach();
+
   servo.attach(15, MINSG90, MAXSG90);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   if (PS4.isConnected()) {
     if (PS4.R2()) {
       drive();
