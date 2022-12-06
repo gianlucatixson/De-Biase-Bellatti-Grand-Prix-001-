@@ -18,36 +18,6 @@
 #define frecuencia 50
 Servo servo;
 
-void zervo() {
-  int CT3;
-  CT3 = PS4.LStickX();
-  int grados = map(CT3, -128, 128, 45, 135);
-  Serial.printf("Left Stick x at %d\n", CT3);
-  Serial.printf("servo grados:  %d\n", grados);
-  servo.write(grados);
-}
-
-void drive() {
-  digitalWrite(A1, HIGH);
-  digitalWrite(A2, LOW);
-  digitalWrite(A3, HIGH);
-  digitalWrite(A4, LOW);
-}
-
-void reverse() {
-  digitalWrite(A2, HIGH);
-  digitalWrite(A1, LOW);
-  digitalWrite(A4, HIGH);
-  digitalWrite(A3, LOW);
-}
-
-void stop() {
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  digitalWrite(A3, LOW);
-  digitalWrite(A4, LOW);
-}
-
 void setup() {
   Serial.begin(115200);
   PS4.begin("1a:2b:3c:01:01:01");
@@ -88,3 +58,34 @@ void loop() {
     
   }
 }
+
+void zervo() {
+  int CT3;
+  CT3 = PS4.LStickX();
+  int grados = map(CT3, -128, 128, 45, 135);
+  Serial.printf("Left Stick x at %d\n", CT3);
+  Serial.printf("servo grados:  %d\n", grados);
+  servo.write(grados);
+}
+
+void drive() {
+  digitalWrite(A1, HIGH);
+  digitalWrite(A2, LOW);
+  digitalWrite(A3, HIGH);
+  digitalWrite(A4, LOW);
+}
+
+void reverse() {
+  digitalWrite(A2, HIGH);
+  digitalWrite(A1, LOW);
+  digitalWrite(A4, HIGH);
+  digitalWrite(A3, LOW);
+}
+
+void stop() {
+  digitalWrite(A1, LOW);
+  digitalWrite(A2, LOW);
+  digitalWrite(A3, LOW);
+  digitalWrite(A4, LOW);
+}
+
