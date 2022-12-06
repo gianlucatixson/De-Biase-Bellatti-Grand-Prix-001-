@@ -18,6 +18,7 @@
 #define frecuencia 50
 Servo servo;
 
+
 void setup() {
   Serial.begin(115200);
   PS4.begin("1a:2b:3c:01:01:01");
@@ -88,4 +89,3 @@ void stop() {
   digitalWrite(A3, LOW);
   digitalWrite(A4, LOW);
 }
-
