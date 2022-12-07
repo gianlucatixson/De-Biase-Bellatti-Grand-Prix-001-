@@ -16,12 +16,12 @@
 #define MINSG90 500
 #define MAXSG90 2400
 #define frecuencia 50
-Servo servo;
+Servo servo;6
 
 
 void setup() {
   Serial.begin(115200);
-  PS4.begin("1a:2b:3c:01:01:01");
+  PS4.begin("2b:3c:4d:02:02:02");
   Serial.println("Ready.");
   
   pinMode(A1, OUTPUT);
@@ -46,13 +46,13 @@ void setup() {
 
 void loop() {
   if (PS4.isConnected()) {
-    if (PS4.R2()) {
+    while (PS4.R2()) {
       drive();
     }
-    if (PS4.L2()) {
+    while (PS4.L2()) {
       reverse();
     }
-    if (PS4.LStickX()) {
+    while (PS4.LStickX()) {
       zervo();
     }
       stop();
